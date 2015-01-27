@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FireWall</string>
+    <string name="add_new">add new</string>
+    <string name="add_from_contacts">add from contacts</string>
+    <string name="delete_all">delete all</string>
+    <string name="phone_block">phone block</string>
+    <string name="msg_block">message block</string>
+    <string name="phone">Phone</string>
+    <string name="name">Name</string>
+    <string name="add_contacts">Add</string>
+    <string name="add_contacts_title">Add Contacts</string>
+    <string name="blacklist_title">Blacklist</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="select_all">Select All Contacts</string>
+
+</resources>

@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.android.firewall.MainActivity" >
+    <item android:id="@+id/add_new_item" android:title="@string/add_new"></item>
+    <item android:id="@+id/add_from_contacts_item" android:title="@string/add_from_contacts"></item>
+    <item android:id="@+id/delete_all_item" android:title="@string/delete_all"></item>
+    <item android:id="@+id/test_item" android:title="test record"></item>
+
+</menu>
