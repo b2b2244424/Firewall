@@ -5,8 +5,8 @@
     <string name="add_new">add new</string>
     <string name="add_from_contacts">add from contacts</string>
     <string name="delete_all">delete all</string>
-    <string name="phone_block">phone block</string>
-    <string name="msg_block">message block</string>
+    <string name="phone_block">phone</string>
+    <string name="msg_block">message</string>
     <string name="phone">Phone</string>
     <string name="name">Name</string>
     <string name="add_contacts">Add</string>

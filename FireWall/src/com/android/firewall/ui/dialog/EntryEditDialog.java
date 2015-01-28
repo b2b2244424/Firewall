@@ -44,7 +44,7 @@ public class EntryEditDialog extends DialogFragment {
 			is_msg_block=args.getBoolean(FirewallConstants.KEY_MSG_BLOCK);
 		}else{
 			num=name="";
-			is_phone_block=is_msg_block=false;
+			is_phone_block=is_msg_block=true;
 			id=-1;
 		}
 		phoneET.setText(num);

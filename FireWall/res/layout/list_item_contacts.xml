@@ -13,26 +13,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/list_item_bg"
             android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/contacts_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
 
             <TextView
                 android:id="@+id/contacts_phone_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Medium Text" />
+                android:text="Medium Text"
+                android:textColor="@color/phone_color"
+                android:textSize="@dimen/phone_size" />
+
+            <TextView
+                android:id="@+id/contacts_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/name_color"
+                android:textSize="@dimen/name_size" />
+
         </LinearLayout>
 
         <CheckBox
             android:id="@+id/choose_cb"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="false" />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

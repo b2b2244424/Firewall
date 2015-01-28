@@ -43,15 +43,20 @@ public class DatabaseManager {
 
 	public void insertOrUpdateManyBlacklist(List<BlacklistInfo> infos) {
 		for (BlacklistInfo info : infos) {
-			ContentValues localValues = new ContentValues();
-			if (info.getId() != -1)
-				localValues.put(BlacklistConlums._ID, info.getId());
-			localValues.put(BlacklistConlums.NAME, info.getName());
-			localValues.put(BlacklistConlums.NUMBER, info.getPhone_num());
-			localValues.put(BlacklistConlums.PHONE_MODE, info.getPhone_mode());
-			localValues.put(BlacklistConlums.MESSAGE_MODE, info.getMsg_mode());
-			mContext.getContentResolver().insert(URIConstants.URI_BLACKLIST,
-					localValues);
+			Cursor cursor = queryBlacklistEntry(info.getPhone_num());
+			if (cursor.getCount() == 0) {//已添加到黑名单的就不会再添加了
+				ContentValues localValues = new ContentValues();
+				if (info.getId() != -1)
+					localValues.put(BlacklistConlums._ID, info.getId());
+				localValues.put(BlacklistConlums.NAME, info.getName());
+				localValues.put(BlacklistConlums.NUMBER, info.getPhone_num());
+				localValues.put(BlacklistConlums.PHONE_MODE,
+						info.getPhone_mode());
+				localValues.put(BlacklistConlums.MESSAGE_MODE,
+						info.getMsg_mode());
+				mContext.getContentResolver().insert(
+						URIConstants.URI_BLACKLIST, localValues);
+			}
 		}
 	}
 

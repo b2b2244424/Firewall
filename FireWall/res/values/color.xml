@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="list_bg">#555555</color>
+    <color name="list_item_bg">#cccccc</color>
+    <color name="phone_color">#000000</color>
+    <color name="name_color">#333333</color>
+    <color name="cb_color">#aaaaaa</color>
+    
+</resources>

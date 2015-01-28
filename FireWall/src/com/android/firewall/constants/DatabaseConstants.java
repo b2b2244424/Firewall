@@ -8,6 +8,8 @@ public class DatabaseConstants {
 	public static final int DATABASE_VERSION = 1;
 
 	public static final String AUTHORITY = "com.android.firewall";
+	
+	public static final String IS_FORBIDDEN="isForbidden";
 
 	public interface TokenConstants {
 		public static final int TOKEN_BLACKLIST = 0;
@@ -16,7 +18,7 @@ public class DatabaseConstants {
 	}
 
 	public interface PathConstants {
-		public static final String PATH_BLACKLIST = "blacklist";
+		public static final String PATH_BLACKLIST = "blacklistitems";
 		public static final String PATH_PBR = "phone_block_record";
 		public static final String PATH_SBR = "sms_block_record";
 	}
