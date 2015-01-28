@@ -3,7 +3,7 @@ package com.android.firewall.constants;
 public class FirewallConstants {
 	
 	public static final String KEY_ID="id";
-	public static final String KEY_PHONE="phone_num";
+	public static final String KEY_PHONE="phonenumber";
 	public static final String KEY_NAME="name";
 	public static final String KEY_PHONE_BLOCK="phone_block";
 	public static final String KEY_MSG_BLOCK="msg_block";

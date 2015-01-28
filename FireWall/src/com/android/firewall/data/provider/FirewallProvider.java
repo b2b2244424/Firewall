@@ -8,6 +8,7 @@ import com.android.firewall.constants.DatabaseConstants.PBRConlums;
 import com.android.firewall.constants.DatabaseConstants.PathConstants;
 import com.android.firewall.constants.DatabaseConstants.Tables;
 import com.android.firewall.constants.DatabaseConstants.TokenConstants;
+import com.android.firewall.constants.FirewallConstants;
 import com.android.firewall.util.LogUtil;
 
 import android.content.ContentProvider;
@@ -20,6 +21,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Bundle;
 
 public class FirewallProvider extends ContentProvider{
 	private DataBaseHelper mSQLDatabaseHelper;
@@ -144,6 +146,32 @@ public class FirewallProvider extends ContentProvider{
 		} finally {
 			mSQLiteDatabase.endTransaction();
 		}
+	}
+
+	@Override
+	public Bundle call(String method, String arg, Bundle extras) {
+		if(method.equals(DatabaseConstants.IS_FORBIDDEN)){
+			return isForbidden(extras);
+		}
+		return super.call(method, arg, extras);
+	}
+	
+	//检查号码是否在黑名单中，在的话拦截短信或者电话
+	private Bundle isForbidden(Bundle extras){
+		Cursor cursor=null;
+		try {
+			cursor=DatabaseManager.getInstance(getContext()).queryBlacklistEntry(extras.getString(FirewallConstants.KEY_PHONE));
+			if(cursor.getCount()!=0)
+				extras.putBoolean(DatabaseConstants.IS_FORBIDDEN, true);
+			else
+				extras.putBoolean(DatabaseConstants.IS_FORBIDDEN, false);
+		} catch (Exception e) {
+			new Exception("is Forbidden ERROR");
+		}finally{
+			if(cursor!=null)
+				cursor.close();
+		}
+		return extras;
 	}
 
 }
