@@ -11,7 +11,9 @@
         android:layout_height="match_parent"
         android:layout_weight="8"
         android:background="@color/list_bg"
-        android:descendantFocusability="blocksDescendants" >
+        android:descendantFocusability="blocksDescendants"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp" >
 
     </ListView>
 

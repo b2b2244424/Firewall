@@ -12,7 +12,7 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 public class PBRAdapter extends CursorAdapter {
-	public final static String TAG="BlacklistAdapter";
+	public final static String TAG="PBRAdapter";
 	
 	private LayoutInflater mInflater;
 	public PBRAdapter(Context context, Cursor c, boolean autoRequery) {
@@ -48,7 +48,6 @@ public class PBRAdapter extends CursorAdapter {
 		holder.tv_name.setText(name);
 		holder.tv_phone.setText(phone);
 		holder.tv_block_time.setText(block_time);
-
 	}
 	
 	public static class PBRViewHolder {

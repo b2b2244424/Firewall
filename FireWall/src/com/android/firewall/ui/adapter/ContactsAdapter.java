@@ -7,8 +7,10 @@ import com.android.firewall.R;
 import com.android.firewall.model.BlacklistInfo;
 import com.android.firewall.model.ContactInfo;
 
+import android.R.bool;
 import android.R.raw;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +40,19 @@ public class ContactsAdapter extends BaseAdapter {
 	public void selectAll(){
 		for (int i = 0; i < mList.size(); i++) {
 			mSparseBooleanArray.put(i, true);
+		}
+	}
+	
+	public boolean getSelected(int pos){
+		return mSparseBooleanArray.get(pos);
+	}
+	
+	public void toggle(int pos){
+		boolean isSelected=mSparseBooleanArray.get(pos);
+		if (isSelected) {
+			mSparseBooleanArray.delete(pos);
+		} else {
+			mSparseBooleanArray.put(pos, true);
 		}
 	}
 	
@@ -92,10 +107,19 @@ public class ContactsAdapter extends BaseAdapter {
 				.findViewById(R.id.contacts_phone_tv);
 		tv_phone.setText(info.getPhone_num());
 
+
+		boolean isSelected=mSparseBooleanArray.get(position);
+		if(isSelected){
+			convertView.setBackgroundResource(R.color.list_bg);
+		}else{
+			convertView.setBackgroundResource(R.color.list_item_bg);
+		}
+		
+		//TODO 如果不需要CheckBox可以删掉
 		CheckBox mCheckBox = (CheckBox) convertView
 				.findViewById(R.id.choose_cb);
 		mCheckBox.setTag(position);
-		mCheckBox.setChecked(mSparseBooleanArray.get(position));
+		mCheckBox.setChecked(isSelected);
 		mCheckBox.setOnCheckedChangeListener(mCheckedChangeListener);
 
 		return convertView;

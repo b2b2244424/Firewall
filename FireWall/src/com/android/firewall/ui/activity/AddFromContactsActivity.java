@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -40,18 +41,17 @@ public class AddFromContactsActivity extends Activity implements OnClickListener
 		contacts_lv=(ListView)findViewById(R.id.contacts_listview);
 		contacts_adapter=new ContactsAdapter(getApplicationContext(), getContactInfos(getContacts()));
 		contacts_lv.setAdapter(contacts_adapter);
-//		contacts_adapter=new ContactsAdapter1(getApplicationContext(), getContacts(), 0);
-//		contacts_lv.setAdapter(contacts_adapter);
-//		
-//		contacts_lv.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				ContactsViewHolder holder=(ContactsViewHolder)view.getTag();
-//				LogUtil.log("AddFromContacts", "click"+position+" "+holder.phone_tv.getText().toString());	
-//			}
-//		});
+	
+		contacts_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				contacts_adapter.toggle(position);
+				LogUtil.log(TAG, "pos:"+position+contacts_adapter.getSelected(position));
+				contacts_adapter.notifyDataSetChanged();
+			}
+		}
+		);
 	}
 	
 	private Cursor getContacts(){

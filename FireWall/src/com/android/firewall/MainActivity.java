@@ -61,7 +61,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		mBt1.setOnClickListener(this);
 		mBt2.setOnClickListener(this);
-		mBt3.setOnClickListener(this);
 		mBt4.setOnClickListener(this);
 
 		mSelBg = (ImageView) findViewById(R.id.tab_bg_view);

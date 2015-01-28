@@ -38,8 +38,14 @@ public class BlacklistActivity extends Activity implements OKListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_blacklist);
+			
+		initViews();
+
+		setListener();
+	}
+	
+	private void initViews(){
 		lv_blacklist = (ListView) findViewById(R.id.bl_lv_blacklist);
 		registerForContextMenu(lv_blacklist);
 		Cursor c = getBlackListCursor();
@@ -50,8 +56,6 @@ public class BlacklistActivity extends Activity implements OKListener {
 		} else {
 			LogUtil.log("Blacklist Activity", "count:" + c.getCount());
 		}
-
-		setListener();
 	}
 
 	@Override
@@ -106,20 +110,28 @@ public class BlacklistActivity extends Activity implements OKListener {
 
 	@Override
 	public void onOKComplete(BlacklistInfo info) {
-		Cursor cursor = DatabaseManager.getInstance(getApplicationContext())
-				.queryBlacklistEntry(info.getPhone_num());
-		// 已添加到黑名单的号码就更新，否则添加
-		if (cursor.getCount()==1) {
-			cursor.moveToFirst();//默认cursor在first之前
-			int id=cursor.getInt(cursor
-					.getColumnIndex(BlacklistConlums._ID));
-			info.setId(id);
+		Cursor cursor=null;
+		try {
+			cursor= DatabaseManager.getInstance(getApplicationContext())
+					.queryBlacklistEntry(info.getPhone_num());
+			// 已添加到黑名单的号码就更新，否则添加
+			if (cursor.getCount()==1) {
+				cursor.moveToFirst();//默认cursor在first之前
+				int id=cursor.getInt(cursor
+						.getColumnIndex(BlacklistConlums._ID));
+				info.setId(id);
+			}
+			DatabaseManager.getInstance(getApplicationContext())
+					.insertOrUpdateBlacklist(info);
+			dataChanged();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			if(cursor!=null)
+				cursor.close();
 		}
-		DatabaseManager.getInstance(getApplicationContext())
-				.insertOrUpdateBlacklist(info);
-		dataChanged();
-		if(cursor!=null)
-			cursor.close();
+
+
 	}
 
 	private Cursor getBlackListCursor() {

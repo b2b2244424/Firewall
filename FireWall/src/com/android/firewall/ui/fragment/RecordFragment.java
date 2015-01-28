@@ -4,6 +4,7 @@ package com.android.firewall.ui.fragment;
 import com.android.firewall.R;
 import com.android.firewall.constants.DatabaseConstants.URIConstants;
 import com.android.firewall.ui.adapter.PBRAdapter;
+import com.android.firewall.util.LogUtil;
 
 import android.app.Fragment;
 import android.database.Cursor;
@@ -36,8 +37,6 @@ public class RecordFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		// case R.id.person2_shopping: // ��ť����
-		// break;
 
 		default:
 			break;
@@ -45,7 +44,9 @@ public class RecordFragment extends Fragment implements OnClickListener {
 	}
 	
 	private Cursor getPBR(){
-		return getActivity().getContentResolver().query(URIConstants.URI_PBR, null, null, null, null);
+		Cursor cursor= getActivity().getContentResolver().query(URIConstants.URI_PBR, null, null, null, null);
+		LogUtil.log("record fragment", "count:"+cursor.getCount()+"");
+		return cursor;
 	}
 
 }

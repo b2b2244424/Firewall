@@ -1,83 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_selector"
+    android:paddingRight="@dimen/list_item_padding_vertical" >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/list_item_selector"
-        android:paddingRight="@dimen/list_item_padding_vertical" >
+        android:layout_weight="4"
+        android:orientation="vertical" >
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/bl_phone_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/bl_phone_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/list_item_padding_vertical"
-                android:textColor="@color/phone_color"
-                android:textSize="@dimen/phone_size" />
-
-            <TextView
-                android:id="@+id/bl_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/list_item_padding_vertical"
-                android:textColor="@color/name_color"
-                android:textSize="@dimen/name_size" />
-
-            <TextView
-                android:id="@+id/bl_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
-
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/bl_cb_phone_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:focusable="false"
-            android:text="@string/phone_block"
-            android:textColor="@color/cb_color"
-            android:visibility="gone" />
-
-        <CheckBox
-            android:id="@+id/bl_cb_msg_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:focusable="false"
-            android:text="@string/msg_block"
-            android:textColor="@color/cb_color"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/bl_pb_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:paddingLeft="@dimen/list_item_padding_horizontal"
-            android:paddingRight="@dimen/list_item_padding_horizontal"
-            android:src="@drawable/phone_off" />
+            android:paddingTop="@dimen/list_item_padding_vertical"
+            android:textColor="@color/phone_color"
+            android:textSize="@dimen/phone_size"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/bl_mb_iv"
+        <TextView
+            android:id="@+id/bl_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:fontFamily="宋体"
+            android:paddingBottom="@dimen/list_item_padding_vertical"
             android:paddingLeft="@dimen/list_item_padding_horizontal"
-            android:paddingRight="@dimen/list_item_padding_horizontal"
-            android:src="@drawable/msg_off" />
+            android:textColor="@color/name_color"
+            android:textSize="@dimen/name_size" />
 
+        <TextView
+            android:id="@+id/bl_id_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/bl_cb_phone_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:focusable="false"
+        android:text="@string/phone_block"
+        android:textColor="@color/cb_color"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/bl_cb_msg_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:focusable="false"
+        android:text="@string/msg_block"
+        android:textColor="@color/cb_color"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/bl_pb_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/list_item_padding_horizontal"
+        android:paddingRight="@dimen/list_item_padding_horizontal"
+        android:src="@drawable/phone_off" />
+
+    <ImageView
+        android:id="@+id/bl_mb_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/list_item_padding_horizontal"
+        android:paddingRight="@dimen/list_item_padding_horizontal"
+        android:src="@drawable/msg_off" />
 
 </LinearLayout>
